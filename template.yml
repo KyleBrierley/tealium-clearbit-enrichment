@@ -39,5 +39,5 @@ Resources:
         PostEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /enrich
             Method: post
