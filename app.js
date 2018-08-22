@@ -30,7 +30,6 @@ function post_to_tealium(data) {
         console.log('post_to_tealium done!');
       });
     });
-    // console.log("line 83, log within post_to_tealium", data);
     post_req.write(JSON.stringify(data));
     post_req.end();
   } catch (e) {
@@ -38,20 +37,20 @@ function post_to_tealium(data) {
   }
 };
 
-app.get('/', function(req, res) {
-  res.send({
+/* app.get('/', function(req, res) {
+   res.send({
     "Output": "Hello World!"
-  });
-});
+   });
+}); */
 
 app.post('/enrich', function(req, res) {
   let email_address = req.body.email;
   let teal_data = {};
   clearbit.Enrichment.find({email: `'${email_address}'`, stream: true})
     .then(function(response) {
-      var person = response.person;
-      var company = response.company;
-      console.log(person, company);
+      var person = flatten(response.person);
+      var company = flatten(response.company);
+      console.log(person, company, 'after flattening both response objects');
       teal_data.merge(person, company);
       console.log(teal_data, 'after merging person and company');
       teal_data.tealium_account = tealium_account;
@@ -64,5 +63,4 @@ app.post('/enrich', function(req, res) {
       console.error(err);
     });
   });
-// Export your Express configuration so that it can be consumed by the Lambda handler
 module.exports = app;
