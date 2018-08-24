@@ -8,7 +8,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const flatten = require('flat');
 require('dotenv').config();
-
+app.use(bodyParser.json());
 const tealium_account = 'services-kyle';
 const tealium_profile = 'main';
 
