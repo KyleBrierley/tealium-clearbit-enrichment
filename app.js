@@ -1,11 +1,12 @@
 require('dotenv').config();
-var express = require('express');
-var lodash = require('lodash');
-var app = express();
-var clearbit = require('clearbit')('process.env.clearbit_api_key');
-var https = require('https');
-var http = require('http');
-var flatten = require('flat');
+const express = require('express');
+const lodash = require('lodash');
+const app = express();
+const clearbit = require('clearbit')('process.env.clearbit_api_key');
+const https = require('https');
+const http = require('http');
+const bodyParser = require('body-parser');
+const flatten = require('flat');
 
 const tealium_account = 'services-kyle';
 const tealium_profile = 'main';
