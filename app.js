@@ -1,4 +1,4 @@
-require('dotenv').config();
+const dotenv = require('dotenv');
 const express = require('express');
 const lodash = require('lodash');
 const app = express();
@@ -7,6 +7,7 @@ const https = require('https');
 const http = require('http');
 const bodyParser = require('body-parser');
 const flatten = require('flat');
+require('dotenv').config();
 
 const tealium_account = 'services-kyle';
 const tealium_profile = 'main';
