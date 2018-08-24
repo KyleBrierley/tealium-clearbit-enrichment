@@ -1,7 +1,8 @@
+require('dotenv').config();
 var express = require('express');
 var lodash = require('lodash');
 var app = express();
-var clearbit = require('clearbit')('sk_ed6e1a6ab3f33c805df5781f16b7e202');
+var clearbit = require('clearbit')('process.env.clearbit_api_key');
 var https = require('https');
 var http = require('http');
 var flatten = require('flat');
