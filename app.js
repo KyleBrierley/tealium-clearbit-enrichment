@@ -51,8 +51,9 @@ function post_to_tealium(data) {
 
 app.post('/enrich', function(req, res) {
   let email_address = req.body.email;
+  console.log(email_address);
   let teal_data = {};
-  clearbit.Enrichment.find({email: `'${email_address}'`, stream: true})
+  clearbit.Enrichment.find({email: email_address, stream: true})
     .then(function(response) {
       var person = flatten(response.person);
       var company = flatten(response.company);
