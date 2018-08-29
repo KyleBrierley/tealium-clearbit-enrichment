@@ -1,8 +1,10 @@
 require('dotenv').config();
+const api_key = `'${process.env.clearbit_api_key}'`;
+console.log(api_key);
 const express = require('express');
 const lodash = require('lodash');
 const app = express();
-const clearbit = require('clearbit')('process.env.clearbit_api_key');
+const clearbit = require('clearbit')(api_key);
 const https = require('https');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -11,7 +13,7 @@ app.use(bodyParser.json());
 const tealium_account = 'services-kyle';
 const tealium_profile = 'main';
 
-console.log('process.env.clearbit_api_key');
+
 
 function post_to_tealium(data) {
   try {
