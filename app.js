@@ -50,15 +50,15 @@ function post_to_tealium(data) {
 }); */
 
 app.post('/enrich', function(req, res) {
-  let email_address = req.body.email;
+  var email_address = req.body.email;
   console.log(email_address);
-  let teal_data = {};
+  var teal_data = {};
   clearbit.Enrichment.find({email: email_address, stream: true})
     .then(function(response) {
       var person = flatten(response.person);
       var company = flatten(response.company);
       console.log(person, company, 'after flattening both response objects');
-      teal_data.merge(person, company);
+      var teal_data = _.merge(person, company);
       console.log(teal_data, 'after merging person and company');
       teal_data.tealium_account = tealium_account;
       teal_data.tealium_profile = tealium_profile;
