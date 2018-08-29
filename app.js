@@ -1,5 +1,5 @@
 require('dotenv').config();
-const api_key = `'${process.env.clearbit_api_key}'`;
+const api_key = process.env.clearbit_api_key;
 console.log(api_key);
 const express = require('express');
 const lodash = require('lodash');
