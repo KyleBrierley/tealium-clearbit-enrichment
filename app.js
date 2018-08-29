@@ -1,4 +1,4 @@
-const dotenv = require('dotenv');
+require('dotenv').config();
 const express = require('express');
 const lodash = require('lodash');
 const app = express();
@@ -7,10 +7,11 @@ const https = require('https');
 const http = require('http');
 const bodyParser = require('body-parser');
 const flatten = require('flat');
-require('dotenv').config();
 app.use(bodyParser.json());
 const tealium_account = 'services-kyle';
 const tealium_profile = 'main';
+
+console.log('process.env.clearbit_api_key');
 
 function post_to_tealium(data) {
   try {
