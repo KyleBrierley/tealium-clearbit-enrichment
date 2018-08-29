@@ -1,7 +1,7 @@
 {
   "name": "tealium-clearbit-enrichment",
   "description": "Enrich visitor profiles in Tealium with Clearbit data",
-  "version": "1.06.09",
+  "version": "1.07.01",
   "keywords": [
     "aws",
     "serverless",
